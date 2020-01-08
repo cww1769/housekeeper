@@ -44,8 +44,10 @@ public class LoginActivity extends AppCompatActivity {
         List<UserInfo> users = MyApplication.getInstance().getUsers();
         if (users != null) {
             Log.i(TAG, "has saved user info, login automatically and jump to main activity");
-            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
             startActivity(intent);
+            finish();
+            overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out);
         } else {
             _loginButton.setOnClickListener(new View.OnClickListener() {
                 @Override
