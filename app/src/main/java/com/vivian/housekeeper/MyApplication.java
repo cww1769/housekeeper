@@ -14,12 +14,23 @@ import java.util.List;
 public class MyApplication extends Application {
 
     private static MyApplication instance = null;
+
+    public static boolean isLogged() {
+        return isLogged;
+    }
+
+    public static void setIsLogged(boolean isLogged) {
+        MyApplication.isLogged = isLogged;
+    }
+
+    private static boolean isLogged = false;
     public static MyApplication getInstance(){
         return instance;
     }
     public MyApplication() {
         super();
     }
+
 
     @Override
     public void onCreate() {
