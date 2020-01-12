@@ -3,7 +3,7 @@
     xmlns:tl="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="#eeeeee"
+    android:background="@color/white"
     android:scrollbars="none">
 
     <LinearLayout
@@ -15,13 +15,14 @@
             android:id="@+id/tl_1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#ffffff"
+            android:background="@color/white"
             android:paddingBottom="5dp"
             android:paddingTop="5dp"
-            tl:tl_indicator_color="#2C97DE"
-            tl:tl_textSelectColor="#2C97DE"
-            tl:tl_textUnselectColor="#66000000"
-            tl:tl_underline_color="#DDDDDD"
+            tl:tl_textBold="SELECT"
+            tl:tl_indicator_color="@color/primary"
+            tl:tl_textSelectColor="@color/primary"
+            tl:tl_textUnselectColor="@color/aluminum"
+            tl:tl_underline_color="@color/iron"
             tl:tl_underline_height="1dp"/>
 
         <android.support.v4.view.ViewPager

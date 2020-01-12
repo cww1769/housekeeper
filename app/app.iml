@@ -96,6 +96,7 @@
     <orderEntry type="library" name="Gradle: com.android.support:design:27.1.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.android.support:appcompat-v7:27.1.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.jakewharton:butterknife:8.8.1@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.flyco.tablayout:FlycoTabLayout_Lib:2.1.2@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.android.support:support-v4:27.1.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.android.support:support-fragment:27.1.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.android.support:animated-vector-drawable:27.1.0@aar" level="project" />
