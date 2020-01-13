@@ -14,6 +14,7 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.FrameLayout;
 
 import com.flyco.tablayout.CommonTabLayout;
 import com.flyco.tablayout.listener.CustomTabEntity;
@@ -26,10 +27,12 @@ import com.vivian.housekeeper.util.ViewFindUtils;
 import java.util.ArrayList;
 import java.util.Random;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 public class MainActivity extends AppCompatActivity {
     private Context mContext = this;
     private ArrayList<Fragment> mFragments = new ArrayList<>();
-    private ArrayList<Fragment> mFragments2 = new ArrayList<>();
 
     private String[] mTitles = {"我的小区", "智能家庭", "个人中心"};
     private int[] mIconUnselectIds = {
@@ -37,33 +40,28 @@ public class MainActivity extends AppCompatActivity {
     private int[] mIconSelectIds = {
             R.mipmap.tab_home_select,  R.mipmap.tab_contact_select, R.mipmap.tab_more_select};
     private ArrayList<CustomTabEntity> mTabEntities = new ArrayList<>();
-    private View mDecorView;
-    private ViewPager mViewPager;
-    private CommonTabLayout mTabLayout_1;
+
+    @BindView(R.id.tl_1)    CommonTabLayout tabLayout;
+    @BindView(R.id.pages)    FrameLayout pages;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_common_tab);
+        setContentView(R.layout.activity_main);
+        ButterKnife.bind(this);
 
         for (String title : mTitles) {
             mFragments.add(SimpleCardFragment.getInstance("Switch ViewPager " + title));
         }
 
-
         for (int i = 0; i < mTitles.length; i++) {
             mTabEntities.add(new TabEntity(mTitles[i], mIconSelectIds[i], mIconUnselectIds[i]));
         }
 
-        mDecorView = getWindow().getDecorView();
-        mViewPager = ViewFindUtils.find(mDecorView, R.id.vp_2);
-        mViewPager.setAdapter(new MyPagerAdapter(getSupportFragmentManager()));
-        /** with nothing */
-        mTabLayout_1 = ViewFindUtils.find(mDecorView, R.id.tl_1);
-
-        mTabLayout_1.setTabData(mTabEntities);
-        mTabLayout_1.showDot(2);
+        tabLayout.setTabData(mTabEntities, this, R.id.pages, mFragments);
+        //mTabLayout_1.showDot(2);
     }
+/*
 
     private class MyPagerAdapter extends FragmentPagerAdapter {
         public MyPagerAdapter(FragmentManager fm) {
@@ -85,6 +83,7 @@ public class MainActivity extends AppCompatActivity {
             return mFragments.get(position);
         }
     }
+*/
 
     protected int dp2px(float dp) {
         final float scale = mContext.getResources().getDisplayMetrics().density;
