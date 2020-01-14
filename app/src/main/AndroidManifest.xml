@@ -20,5 +20,6 @@
         <activity android:name="com.vivian.housekeeper.LoginActivity" android:theme="@style/AppTheme.Dark" />
         <activity android:name="com.vivian.housekeeper.SignupActivity" android:theme="@style/AppTheme.Dark" />
     </application>
+    <uses-permission android:name="android.permission.INTERNET" />
 
 </manifest>

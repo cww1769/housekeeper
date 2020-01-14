@@ -16,6 +16,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.FrameLayout;
 
+import com.facebook.drawee.backends.pipeline.Fresco;
 import com.flyco.tablayout.CommonTabLayout;
 import com.flyco.tablayout.listener.CustomTabEntity;
 import com.flyco.tablayout.listener.OnTabSelectListener;
@@ -49,10 +50,12 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
+        Fresco.initialize(this);
 
-        for (String title : mTitles) {
-            mFragments.add(SimpleCardFragment.getInstance("Switch ViewPager " + title));
-        }
+        mFragments.add(MyCommunityFragment.getInstance());
+        mFragments.add(SimpleCardFragment.getInstance("Switch ViewPager " + mTitles[1]));
+        mFragments.add(SimpleCardFragment.getInstance("Switch ViewPager " + mTitles[2]));
+
 
         for (int i = 0; i < mTitles.length; i++) {
             mTabEntities.add(new TabEntity(mTitles[i], mIconSelectIds[i], mIconUnselectIds[i]));
