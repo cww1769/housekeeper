@@ -18,30 +18,24 @@
         android:id="@+id/community_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="0dp"
+        android:layout_margin="2dp"
         android:background="@color/whitesmoke"
         android:text="@string/choose_community"
         android:gravity="center"
         android:textSize="18sp"/>
-    <TableLayout
-        android:layout_width="match_parent"
-        android:stretchColumns="2"
-        android:layout_height="wrap_content">
-        <TableRow>
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:src="@mipmap/maintain"/>
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:src="@mipmap/notice"/>
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:src="@mipmap/secondhand"/>
-        </TableRow>
-    </TableLayout>
+        <GridView
+            android:id="@+id/gridView"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:columnWidth="100dp"
+            android:drawSelectorOnTop="true"
+            android:gravity="center"
+            android:numColumns="auto_fit"
+            android:stretchMode="columnWidth"
+            android:verticalSpacing="5dp"
+            android:focusable="true"
+            android:clickable="true"/>
     </LinearLayout>
     <!--
     <TextView
